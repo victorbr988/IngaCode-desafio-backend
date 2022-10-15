@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { statusCode } from "../../utils";
+import { statusCode } from "../../utils/StatusCode";
 import { createTaskService } from "../../services/tasks/createTaskService";
 import { Tasks } from "@prisma/client";
 
