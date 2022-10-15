@@ -16,7 +16,7 @@ model Users {
   password  String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  deletedAt DateTime
+  deletedAt DateTime?
 }
 
 model Colaborators {
@@ -24,7 +24,7 @@ model Colaborators {
   name      String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  deletedAt DateTime
+  deletedAt DateTime?
   time      TimeTrackers[]
 }
 
@@ -33,20 +33,20 @@ model Projects {
   name      String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  deletedAt DateTime
+  deletedAt DateTime? 
   tasks     Tasks[]
 }
 
 model Tasks {
-  id          String    @unique
-  name        String
-  description String
-  projectsId   Projects  @relation(fields: [projectId], references: [id])
-  projectId   String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  deletedAt   DateTime
-  time        TimeTrackers[]
+  id            String    @unique
+  name          String
+  description   String
+  projectsId    Projects  @relation(fields: [projectId], references: [id])
+  projectId     String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime? 
+  time          TimeTrackers[]
 }
 
 model TimeTrackers {
@@ -60,5 +60,5 @@ model TimeTrackers {
   colaboratorId   String
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
-  deletedAt       DateTime
+  deletedAt       DateTime?
 }
