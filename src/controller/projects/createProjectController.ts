@@ -1,7 +1,7 @@
 import { Projects } from "@prisma/client";
 import { Request, Response } from "express";
 import { createProjectService } from "../../services/projects/createProjectService";
-import { statusCode } from "../../utils";
+import { statusCode } from "../../utils/StatusCode";
 
 export async function createProjectController(request: Request, response: Response): Promise<Response> {
   const { 
