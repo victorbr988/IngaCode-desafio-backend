@@ -8,6 +8,7 @@ export async function createTaskModel(props: Tasks): Promise<string> {
     name,
     description,
     projectId,
+    colaboratorId,
     createdAt,
     updatedAt,
     deletedAt
@@ -19,6 +20,7 @@ export async function createTaskModel(props: Tasks): Promise<string> {
       name,
       description,
       projectId,
+      colaboratorId,
       createdAt,
       updatedAt,
       deletedAt

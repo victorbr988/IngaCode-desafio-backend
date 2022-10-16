@@ -9,6 +9,7 @@ export async function createTaskController(request: Request, response: Response)
     name,
     description,
     projectId,
+    colaboratorId,
     createdAt,
     updatedAt,
     deletedAt
@@ -19,6 +20,7 @@ export async function createTaskController(request: Request, response: Response)
     name,
     description,
     projectId,
+    colaboratorId,
     createdAt,
     updatedAt,
     deletedAt
