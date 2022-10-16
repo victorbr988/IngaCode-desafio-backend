@@ -4,4 +4,4 @@ export const statusCode = {
   INVALID_DATA: 400,
   NOT_FOUNT: 404,
   INTERNAL_ERROR: 500,
-}
+};
