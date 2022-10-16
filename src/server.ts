@@ -6,6 +6,7 @@ import { projectsRoute } from "./routers/projects";
 import { userRouter } from "./routers/users";
 import { authUser, validateUser } from "./Middleware/authUser";
 import { colaboratorRoute } from "./routers/colaborator";
+import { timeTrackerRouter } from "./routers/timeTrackers";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use('/tasks', authUser, tasksRouter);
 app.use('/project', authUser, projectsRoute);
 app.use('/user', validateUser, userRouter);
 app.use('/colaborator', authUser, colaboratorRoute);
+app.use('/timeTracker', authUser, timeTrackerRouter);
 
 const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on port ${port}`));
