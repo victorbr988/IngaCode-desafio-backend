@@ -7,12 +7,15 @@ export async function validateTimeTracker(request: Request, response: Response, 
   const {
     startDate,
     endDate,
+    taskId,
   }: TimeTrackerProps = request.body;
   const prisma = new PrismaClient()
 
   const start: number = new Date(startDate).getTime();
   const end: number = new Date(endDate).getTime();
-  const allTimeTrackers: TimeTrackers[] = await prisma.timeTrackers.findMany();
+  const allTimeTrackers: TimeTrackers[] = await prisma.timeTrackers.findMany({
+    where: { taskId }
+  });
 
   if (start > end) {
     return response.status(statusCode.INVALID_DATA).json({ message: "Invalid Date"})
