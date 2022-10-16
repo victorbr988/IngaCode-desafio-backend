@@ -26,6 +26,7 @@ model Colaborators {
   updatedAt DateTime?  @updatedAt
   deletedAt DateTime?
   time      TimeTrackers[]
+  tasks     Tasks[]
 }
 
 model Projects {
@@ -38,15 +39,17 @@ model Projects {
 }
 
 model Tasks {
-  id            String    @unique
-  name          String
-  description   String
-  projectsId    Projects  @relation(fields: [projectId], references: [id])
-  projectId     String
-  createdAt     DateTime?  @default(now())
-  updatedAt     DateTime?  @updatedAt
-  deletedAt     DateTime? 
-  time          TimeTrackers[]
+  id              String    @unique
+  name            String
+  description     String
+  projectsId      Projects  @relation(fields: [projectId], references: [id])
+  projectId       String
+  colaboratorsId  Colaborators?  @relation(fields: [colaboratorId], references: [id])
+  colaboratorId   String?
+  createdAt       DateTime?  @default(now())
+  updatedAt       DateTime?  @updatedAt
+  deletedAt       DateTime? 
+  time            TimeTrackers[]
 }
 
 model TimeTrackers {
