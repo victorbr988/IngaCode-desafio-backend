@@ -6,3 +6,11 @@ export interface CreateTokenProps {
 export interface ColaboratorProps {
   name: string;
 };
+
+export interface TimeTrackerProps {
+  startDate: string;
+  endDate: string;
+  timeZoneId?: string;
+  taskId: string;
+  colaboratorId: string;
+};
