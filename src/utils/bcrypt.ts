@@ -5,3 +5,9 @@ export async function encrypted (password: string): Promise<string> {
 
   return passwordEncrypted;
 };
+
+export async function comparePassword(password: string, passwordEncrypted: string): Promise<boolean> {
+  const isEqualPassword: boolean = await  bcrypt.compare(password, passwordEncrypted)
+
+  return isEqualPassword;
+}
