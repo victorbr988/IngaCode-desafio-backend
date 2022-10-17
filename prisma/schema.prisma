@@ -42,9 +42,9 @@ model Tasks {
   id              String    @unique
   name            String
   description     String
-  projectsId      Projects  @relation(fields: [projectId], references: [id])
+  projectsId      Projects  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   projectId       String
-  colaboratorsId  Colaborators?  @relation(fields: [colaboratorId], references: [id])
+  colaboratorsId  Colaborators?  @relation(fields: [colaboratorId], references: [id], onDelete: Cascade)
   colaboratorId   String?
   createdAt       DateTime?  @default(now())
   updatedAt       DateTime?  @updatedAt
@@ -57,9 +57,9 @@ model TimeTrackers {
   startDate       DateTime      @default(now())
   endDate         DateTime
   timeZoneId      String
-  tasksId         Tasks         @relation(fields: [taskId], references: [id])
+  tasksId         Tasks         @relation(fields: [taskId], references: [id], onDelete: Cascade)
   taskId          String
-  colaboratorsId  Colaborators  @relation(fields: [colaboratorId], references: [id])
+  colaboratorsId  Colaborators  @relation(fields: [colaboratorId], references: [id], onDelete: Cascade)
   colaboratorId   String
   createdAt       DateTime?      @default(now())
   updatedAt       DateTime?      @updatedAt
