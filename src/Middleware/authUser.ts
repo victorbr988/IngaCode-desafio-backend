@@ -2,6 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import { statusCode } from "../utils/StatusCode";
 import { validateToken } from "../utils/token";
 import { PrismaClient, Users } from "@prisma/client";
+import { findUserService } from "../services/users/loginUserService";
+import { comparePassword } from "../utils/bcrypt";
 
 export function authUser(request: Request, response: Response, next: NextFunction): Response | void {
   const { authorization } = request.headers;
@@ -27,14 +29,14 @@ export async function validateUser(request: Request, response: Response, next: N
     return response.status(statusCode.INVALID_DATA).json({ message: "E-mail or password invalid"});
   };
 
-  const user: Users | null = await prisma.users.findUnique({
-    where: {
-      userName
-    },
-  });
+  const user = await findUserService(userName);
 
   if (user) {
-    return response.status(statusCode.INVALID_DATA).json({ message: "Username alread exists" });
+    const isEqualPassword = await comparePassword(password, user.password);
+
+    if (!isEqualPassword) {
+      return response.status(statusCode.INVALID_DATA).json({ message: "password invalid" });
+    };
   };
 
   next();
