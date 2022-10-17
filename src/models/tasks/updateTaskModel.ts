@@ -1,4 +1,5 @@
 import { PrismaClient, Tasks } from "@prisma/client";
+import { v4 } from "uuid";
 
 const prisma = new PrismaClient();
 
@@ -19,6 +20,7 @@ export async function updateTaskModel(props: Tasks): Promise<string> {
       id
     },
     data: {
+      id: v4(),
       name,
       description,
       projectId,
