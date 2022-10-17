@@ -10,7 +10,7 @@ export async function createProjectController(request: Request, response: Respon
     createdAt,
     updatedAt,
     deletedAt
-  }: Projects = request.body
+  }: Projects = request.body;
 
   const idProject = await createProjectService({ 
     id,
@@ -20,5 +20,5 @@ export async function createProjectController(request: Request, response: Respon
     deletedAt
   });
 
-  return response.status(statusCode.CREATED).json({ id: idProject})
-}
+  return response.status(statusCode.CREATED).json({ id: idProject});
+};

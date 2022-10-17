@@ -26,5 +26,5 @@ export async function createTaskModel(props: Tasks): Promise<string> {
       deletedAt
     }
   })
-  return task.id
-}
+  return task.id;
+};

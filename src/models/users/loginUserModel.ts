@@ -23,4 +23,4 @@ export async function findUserModel(userName: string): Promise<Users | null> {
   });
 
   return user;
-}
+};

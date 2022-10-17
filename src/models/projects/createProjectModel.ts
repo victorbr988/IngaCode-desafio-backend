@@ -1,7 +1,7 @@
 import { PrismaClient, Projects } from "@prisma/client";
 import { v4 } from "uuid";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 export async function createProjectModel(props: Projects): Promise<string> {
   const {
@@ -9,7 +9,7 @@ export async function createProjectModel(props: Projects): Promise<string> {
     createdAt,
     updatedAt,
     deletedAt
-  } = props
+  } = props;
 
   const project = await prisma.projects.create({
     data: {
@@ -18,7 +18,7 @@ export async function createProjectModel(props: Projects): Promise<string> {
       createdAt,
       updatedAt,
       deletedAt
-    }
-  })
-  return project.id
-}
+    },
+  });
+  return project.id;
+};

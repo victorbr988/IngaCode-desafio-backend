@@ -5,6 +5,6 @@ import { updateTaskController } from "../controller/tasks/updateTaskController";
 
 export const tasksRouter = express.Router();
 
-tasksRouter.post('/', createTaskController)
-tasksRouter.get('/', getAllTasksController)
-tasksRouter.put('/:id', updateTaskController)
+tasksRouter.post('/', createTaskController);
+tasksRouter.get('/', getAllTasksController);
+tasksRouter.put('/:id', updateTaskController);

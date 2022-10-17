@@ -25,4 +25,4 @@ export async function updateTaskService(props: Tasks): Promise<string> {
   });
 
   return taskId;
-}
+};

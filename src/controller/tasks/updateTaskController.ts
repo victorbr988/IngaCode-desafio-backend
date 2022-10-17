@@ -27,5 +27,5 @@ export async function updateTaskController(request: Request, response: Response)
     deletedAt
   });
 
-  return response.status(statusCode.CREATED).json({ id: taskId})
-}
+  return response.status(statusCode.CREATED).json({ id: taskId});
+};

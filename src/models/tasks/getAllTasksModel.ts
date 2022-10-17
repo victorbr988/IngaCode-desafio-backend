@@ -7,8 +7,8 @@ export async function getAllTasksModel(): Promise<Tasks[]> {
     include: {
       colaboratorsId: true,
       time: true
-    }
-  })
+    },
+  });
 
-  return allTasks
-}
+  return allTasks;
+};

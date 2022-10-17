@@ -9,7 +9,7 @@ export async function validateTimeTracker(request: Request, response: Response, 
     endDate,
     taskId,
   }: TimeTrackerProps = request.body;
-  const prisma = new PrismaClient()
+  const prisma = new PrismaClient();
 
   const start: number = new Date(startDate).getTime();
   const end: number = new Date(endDate).getTime();
@@ -32,9 +32,9 @@ export async function validateTimeTracker(request: Request, response: Response, 
     if (dayStart === dayStartRequest) {
       if (start >= startDateRequest && endDateRequest <= end ) {
         return response.status(statusCode.INVALID_DATA).json({ message: "Date have invalid time"})
-      }
-    }
-  }
+      };
+    };
+  };
 
-  next()
+  next();
 };

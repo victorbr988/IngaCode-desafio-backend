@@ -15,4 +15,4 @@ export async function createColaboratorModel(props: ColaboratorProps): Promise<s
   });
 
   return colaborator.id;
-}
+};

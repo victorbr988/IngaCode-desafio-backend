@@ -18,7 +18,7 @@ export async function createUserController(request: Request, response: Response)
   const user = await findUserService(userName);
 
   if (user) {
-    return response.status(statusCode.OK).json({ token })
+    return response.status(statusCode.OK).json({ token });
   };
 
   await createUserService({

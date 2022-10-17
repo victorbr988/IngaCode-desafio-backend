@@ -3,4 +3,4 @@ import { createTimeTrackerController } from "../controller/timeTrackers/createTi
 
 export const timeTrackerRouter = express.Router();
 
-timeTrackerRouter.post('/', createTimeTrackerController)
+timeTrackerRouter.post('/', createTimeTrackerController);

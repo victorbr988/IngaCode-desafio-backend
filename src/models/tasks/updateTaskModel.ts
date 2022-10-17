@@ -1,7 +1,6 @@
 import { PrismaClient, Tasks } from "@prisma/client";
-import { v4 } from 'uuid';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 export async function updateTaskModel(props: Tasks): Promise<string> {
   const {
@@ -27,7 +26,7 @@ export async function updateTaskModel(props: Tasks): Promise<string> {
       createdAt,
       updatedAt,
       deletedAt
-    }
-  })
-  return task.id
-}
+    },
+  });
+  return task.id;
+};

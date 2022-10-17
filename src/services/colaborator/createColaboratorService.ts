@@ -7,4 +7,4 @@ export async function createColaboratorService(props: ColaboratorProps): Promise
   const colaboratorId: string = await createColaboratorModel({ name });
 
   return colaboratorId;
-}
+};

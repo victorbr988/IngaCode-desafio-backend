@@ -4,7 +4,7 @@ import { findAllProjectsService } from "../../services/projects/findAllProjectsS
 import { statusCode } from "../../utils/StatusCode";
 
 export async function findAllProjectsController(_request: Request, response: Response): Promise<Response> {
-  const allProjects: Projects[] = await findAllProjectsService()
+  const allProjects: Projects[] = await findAllProjectsService();
 
-  return response.status(statusCode.OK).json(allProjects)
-}
+  return response.status(statusCode.OK).json(allProjects);
+};

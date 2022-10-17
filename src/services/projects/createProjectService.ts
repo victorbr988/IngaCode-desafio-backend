@@ -8,7 +8,7 @@ export async function createProjectService(props: Projects): Promise<string> {
     createdAt,
     updatedAt,
     deletedAt
-  } = props
+  } = props;
 
   const idProject = await createProjectModel({
     id,
@@ -18,5 +18,5 @@ export async function createProjectService(props: Projects): Promise<string> {
     deletedAt
   })
 
-  return idProject
-}
+  return idProject;
+};

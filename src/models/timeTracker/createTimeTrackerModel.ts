@@ -23,8 +23,8 @@ export async function createTimeTrackerModel(props: TimeTrackerProps) {
       timeZoneId: date[5],
       taskId,
       colaboratorId
-    }
-  })
+    },
+  });
 
   return timeTracker.id;
-}
+};
