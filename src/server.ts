@@ -1,5 +1,5 @@
 import express from "express";
-const cors = require('cors');
+import cors from 'cors';
 import 'dotenv/config'
 import { tasksRouter } from "./routers/tasks";
 import { projectsRoute } from "./routers/projects";
@@ -10,9 +10,8 @@ import { timeTrackerRouter } from "./routers/timeTrackers";
 import { validateTimeTracker } from "./Middleware/middlewareTimeTracker";
 
 const app = express();
-
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use('/tasks', authUser, tasksRouter);
 app.use('/project', authUser, projectsRoute);
 app.use('/user', validateUser, userRouter);
