@@ -1,13 +1,13 @@
 import cors from 'cors';
-import express from "express";
+import express from 'express';
 import 'dotenv/config'
-import { tasksRouter } from "./routers/tasks";
-import { projectsRoute } from "./routers/projects";
-import { userRouter } from "./routers/users";
-import { authUser, validateUser } from "./Middleware/authUser";
-import { colaboratorRoute } from "./routers/colaborator";
-import { timeTrackerRouter } from "./routers/timeTrackers";
-import { validateTimeTracker } from "./Middleware/middlewareTimeTracker";
+import { tasksRouter } from './routers/tasks';
+import { projectsRoute } from './routers/projects';
+import { userRouter } from './routers/users';
+import { authUser, validateUser } from './Middleware/authUser';
+import { colaboratorRoute } from './routers/colaborator';
+import { timeTrackerRouter } from './routers/timeTrackers';
+import { validateTimeTracker } from './Middleware/middlewareTimeTracker';
 
 const app = express();
 app.use(express.json());
