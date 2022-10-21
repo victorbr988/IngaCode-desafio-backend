@@ -7,5 +7,5 @@ export async function deleteProjectController(request: Request, response: Respon
 
   await deleteProjectService(id)
 
-  return response.status(statusCode.OK).json({ message: "Project deleted!" });
+  return response.status(statusCode.OK).json({ message: "Projeto deletado!" });
 };

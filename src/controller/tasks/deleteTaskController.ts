@@ -7,5 +7,5 @@ export async function deleteTaskController(request: Request, response: Response)
 
   await deleteTaskService(id);
 
-  return response.status(statusCode.OK).json({ message: "task deleted" });
+  return response.status(statusCode.OK).json({ message: "Task deletada" });
 };

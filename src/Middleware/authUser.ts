@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { statusCode } from "../utils/StatusCode";
 import { validateToken } from "../utils/token";
-import { PrismaClient, Users } from "@prisma/client";
 import { findUserService } from "../services/users/loginUserService";
 import { comparePassword } from "../utils/bcrypt";
 
@@ -9,13 +8,13 @@ export function authUser(request: Request, response: Response, next: NextFunctio
   const { authorization } = request.headers;
 
   if (!authorization) {
-    return response.status(statusCode.NOT_FOUNT).json({ message: "Token not found" });
+    return response.status(statusCode.NOT_FOUNT).json({ message: "Permissão negada" });
   };
 
   try {
     validateToken(authorization);
   } catch(err) {
-    return response.status(statusCode.INVALID_DATA).json({ message: "invalid or expired token"});
+    return response.status(statusCode.INVALID_DATA).json({ message: "Faça login novamente"});
   };
 
   next();
@@ -25,7 +24,7 @@ export async function validateUser(request: Request, response: Response, next: N
   const { userName, password } = request.body;
 
   if (!userName || !password) {
-    return response.status(statusCode.INVALID_DATA).json({ message: "Name or password empty"});
+    return response.status(statusCode.INVALID_DATA).json({ message: "Nome ou senha está vazio"});
   };
 
   const user = await findUserService(userName);
@@ -34,7 +33,7 @@ export async function validateUser(request: Request, response: Response, next: N
     const isEqualPassword = await comparePassword(password, user.password);
 
     if (!isEqualPassword) {
-      return response.status(statusCode.INVALID_DATA).json({ message: "password invalid" });
+      return response.status(statusCode.INVALID_DATA).json({ message: "Senha incorreta" });
     };
   };
 

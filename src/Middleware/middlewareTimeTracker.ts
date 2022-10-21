@@ -18,7 +18,7 @@ export async function validateTimeTracker(request: Request, response: Response, 
   });
 
   if (start > end) {
-    return response.status(statusCode.INVALID_DATA).json({ message: "Invalid Date"})
+    return response.status(statusCode.INVALID_DATA).json({ message: "Data inválida"})
   }
 
   for (let index = 0; index < allTimeTrackers.length; index += 1 ) {
@@ -31,7 +31,7 @@ export async function validateTimeTracker(request: Request, response: Response, 
 
     if (dayStart === dayStartRequest) {
       if (start >= startDateRequest && endDateRequest <= end ) {
-        return response.status(statusCode.INVALID_DATA).json({ message: "Date have invalid time"})
+        return response.status(statusCode.INVALID_DATA).json({ message: "Intervalo de tempo inválido"})
       };
     };
   };
