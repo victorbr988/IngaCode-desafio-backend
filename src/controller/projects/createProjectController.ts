@@ -20,5 +20,5 @@ export async function createProjectController(request: Request, response: Respon
     deletedAt
   });
 
-  return response.status(statusCode.CREATED).json({ id: idProject});
+  return response.status(statusCode.CREATED).json({ projeto: idProject});
 };

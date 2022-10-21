@@ -1,7 +1,7 @@
 import { Projects } from "@prisma/client";
 import { createProjectModel } from "../../models/projects/createProjectModel";
 
-export async function createProjectService(props: Projects): Promise<string> {
+export async function createProjectService(props: Projects): Promise<Projects> {
   const {
     id,
     name,
