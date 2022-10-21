@@ -23,10 +23,9 @@ export function authUser(request: Request, response: Response, next: NextFunctio
 
 export async function validateUser(request: Request, response: Response, next: NextFunction) {
   const { userName, password } = request.body;
-  const prisma = new PrismaClient();
 
   if (!userName || !password) {
-    return response.status(statusCode.INVALID_DATA).json({ message: "E-mail or password invalid"});
+    return response.status(statusCode.INVALID_DATA).json({ message: "Name or password empty"});
   };
 
   const user = await findUserService(userName);
