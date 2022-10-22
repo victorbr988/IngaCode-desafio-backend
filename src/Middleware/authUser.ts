@@ -26,7 +26,6 @@ export async function validateUser(request: Request, response: Response, next: N
   if (!userName || !password) {
     return response.status(statusCode.INVALID_DATA).json({ message: "Nome ou senha está vazio"});
   };
-
   const user = await findUserService(userName);
 
   if (user) {
