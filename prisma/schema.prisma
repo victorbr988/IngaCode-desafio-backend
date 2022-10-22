@@ -11,29 +11,29 @@ datasource db {
 }
 
 model Users {
-  id        String    @unique
-  userName  String    @unique
+  id        String      @unique
+  userName  String      @unique
   password  String
-  createdAt DateTime?  @default(now())
-  updatedAt DateTime?  @updatedAt
+  createdAt DateTime?   @default(now())
+  updatedAt DateTime?   @updatedAt
   deletedAt DateTime?
 }
 
 model Colaborators {
-  id        String    @unique
-  name      String
-  createdAt DateTime?  @default(now())
-  updatedAt DateTime?  @updatedAt
+  id        String      @unique
+  name      String      @unique
+  createdAt DateTime?   @default(now())
+  updatedAt DateTime?   @updatedAt
   deletedAt DateTime?
   time      TimeTrackers[]
   tasks     Tasks[]
 }
 
 model Projects {
-  id        String    @unique
-  name      String
-  createdAt DateTime?  @default(now())
-  updatedAt DateTime?  @updatedAt
+  id        String      @unique
+  name      String      @unique
+  createdAt DateTime?   @default(now())
+  updatedAt DateTime?   @updatedAt
   deletedAt DateTime? 
   tasks     Tasks[]
 }
@@ -42,9 +42,9 @@ model Tasks {
   id              String    @unique
   name            String
   description     String
-  projectsId      Projects  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectsId      Projects  @relation(fields: [projectId], references: [name], onDelete: Cascade)
   projectId       String
-  colaboratorsId  Colaborators?  @relation(fields: [colaboratorId], references: [id], onDelete: Cascade)
+  colaboratorsId  Colaborators?  @relation(fields: [colaboratorId], references: [name], onDelete: Cascade)
   colaboratorId   String?
   createdAt       DateTime?  @default(now())
   updatedAt       DateTime?  @updatedAt
