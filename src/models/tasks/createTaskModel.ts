@@ -3,7 +3,7 @@ import { v4 } from 'uuid';
 
 const prisma = new PrismaClient()
 
-export async function createTaskModel(props: Tasks): Promise<string> {
+export async function createTaskModel(props: Tasks): Promise<Tasks> {
   const {
     name,
     description,
@@ -26,5 +26,5 @@ export async function createTaskModel(props: Tasks): Promise<string> {
       deletedAt
     }
   })
-  return task.id;
+  return task;
 };

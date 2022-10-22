@@ -1,7 +1,7 @@
 import { createTaskModel } from "../../models/tasks/createTaskModel";
 import { Tasks } from "@prisma/client";
 
-export async function createTaskService(props: Tasks): Promise<string> {
+export async function createTaskService(props: Tasks): Promise<Tasks> {
   const {
     id,
     name,
@@ -13,7 +13,7 @@ export async function createTaskService(props: Tasks): Promise<string> {
     deletedAt
   } = props;
   
-  const taskId: string = await createTaskModel({
+  const task = await createTaskModel({
     id,
     name,
     description,
@@ -24,5 +24,5 @@ export async function createTaskService(props: Tasks): Promise<string> {
     deletedAt
   });
 
-  return taskId;
+  return task;
 };

@@ -1,7 +1,7 @@
 import { updateTaskModel } from "../../models/tasks/updateTaskModel";
 import { Tasks } from "@prisma/client";
 
-export async function updateTaskService(props: Tasks): Promise<string> {
+export async function updateTaskService(props: Tasks): Promise<Tasks> {
   const {
     id,
     name,
@@ -13,7 +13,7 @@ export async function updateTaskService(props: Tasks): Promise<string> {
     deletedAt
   } = props;
   
-  const taskId: string = await updateTaskModel({
+  const taskId = await updateTaskModel({
     id,
     name,
     description,

@@ -15,7 +15,7 @@ export async function createTaskController(request: Request, response: Response)
     deletedAt
   }: Tasks = request.body;
 
-  const taskId: string = await createTaskService({
+  const task = await createTaskService({
     id,
     name,
     description,
@@ -26,5 +26,5 @@ export async function createTaskController(request: Request, response: Response)
     deletedAt
   });
 
-  return response.status(statusCode.CREATED).json({ id: taskId});
+  return response.status(statusCode.CREATED).json({task});
 };

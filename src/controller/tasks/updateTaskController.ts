@@ -16,7 +16,7 @@ export async function updateTaskController(request: Request, response: Response)
   }: Tasks = request.body;
   const { id } = request.params;
 
-  const taskId: string = await updateTaskService({
+  const task = await updateTaskService({
     id,
     name,
     description,
@@ -27,5 +27,5 @@ export async function updateTaskController(request: Request, response: Response)
     deletedAt
   });
 
-  return response.status(statusCode.CREATED).json({ id: taskId});
+  return response.status(statusCode.CREATED).json({ task});
 };
