@@ -13,7 +13,7 @@ export async function updateProjectController(request: Request, response: Respon
   }: Projects = request.body;
   const { id } = request.params;
 
-  const idProject = await updateProjectService({ 
+  const Project = await updateProjectService({ 
     id,
     name,
     createdAt,
@@ -21,5 +21,5 @@ export async function updateProjectController(request: Request, response: Respon
     deletedAt
   });
 
-  return response.status(statusCode.CREATED).json({ id: idProject});
+  return response.status(statusCode.CREATED).json({ Project});
 };

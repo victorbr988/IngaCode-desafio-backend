@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 
 const prisma = new PrismaClient();
 
-export async function updateProjectModel(props: Projects): Promise<string> {
+export async function updateProjectModel(props: Projects): Promise<Projects> {
   const {
     id,
     name,
@@ -24,5 +24,5 @@ export async function updateProjectModel(props: Projects): Promise<string> {
       deletedAt
     },
   });
-  return project.id;
+  return project;
 };

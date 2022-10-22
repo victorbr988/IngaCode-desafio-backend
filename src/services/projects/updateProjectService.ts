@@ -1,7 +1,7 @@
 import { Projects } from "@prisma/client";
 import { updateProjectModel } from "../../models/projects/updateProjectModel";
 
-export async function updateProjectService(props: Projects): Promise<string> {
+export async function updateProjectService(props: Projects): Promise<Projects> {
   const {
     id,
     name,
@@ -10,7 +10,7 @@ export async function updateProjectService(props: Projects): Promise<string> {
     deletedAt
   } = props;
 
-  const idProject = await updateProjectModel({
+  const Project = await updateProjectModel({
     id,
     name,
     createdAt,
@@ -18,5 +18,5 @@ export async function updateProjectService(props: Projects): Promise<string> {
     deletedAt
   })
 
-  return idProject;
+  return Project;
 };
