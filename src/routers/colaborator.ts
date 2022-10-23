@@ -1,6 +1,6 @@
 import express from "express";
-import { createColaboratorController } from "../controller/colaborator/createColaborator";
+import { findAllColaboratorsController } from "../controller/colaborator/findAllColaborators";
 
 export const colaboratorRoute = express.Router();
 
-colaboratorRoute.post('/', createColaboratorController);
+colaboratorRoute.get('/', findAllColaboratorsController);

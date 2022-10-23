@@ -15,6 +15,13 @@ export async function createUserModel(props: Users): Promise<void> {
       password: newPassword
     },
   });
+  await prisma.colaborators.create({
+    data: {
+      id: v4(),
+      name: userName
+    }
+  })
+
 };
 
 export async function findUserModel(userName: string): Promise<Users | null> {
